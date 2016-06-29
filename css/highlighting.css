@@ -1,0 +1,40 @@
+/* keywords */
+.kw {
+    color: purple;
+    font-weight: bold;
+}
+
+/* Haskell operators */
+.haskell .fu {
+    color: brown;
+}
+
+/* Java methods, fields, annotations */
+.java .fu {
+    color: indigo;
+}
+
+/* Data types */
+.dt {
+    color: green;
+}
+
+/* Comments */
+.co {
+    color: crimson;
+}
+
+/* Literals */
+.dv {
+    color: black;
+}
+
+/* Other(?) */
+.ot {
+    color: black;
+}
+
+/* String literals */
+.st {
+    color: chocolate;
+}

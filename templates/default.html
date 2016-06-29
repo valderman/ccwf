@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/highlighting.css">
+    <script src="/js/scripts.js"></script>
+    <title>$title$ | Compiler Construction $year$</title>
+    <body>
+      <div id="content" class="content">
+        $body$
+      </div>
+      <div id="sidebar" class="sidebar">
+        <ul id="sidebarheading">
+          <h2>Compiler Construction $year$</h2>
+          <p>TDA283/DIT300</p>
+        </ul>
+        <ul id="menu">
+          $for(menuitems)$
+          <a href="$url$" class="$selected$">
+            <li class="$selected$">
+              $body$
+              $if(submenuitems)$
+              <ul class="submenu">
+                $for(submenuitems)$
+                <a class="submenu" class="unselected" href="$path$"><li>$body$</li></a>
+                $endfor$
+              </ul>
+              $endif$
+            </li>
+          </a>
+          $endfor$
+        </ul>
+        <img src="/images/chalmers.png">
+      </div>
+      <div id="topbar" class="topbar" onclick="toggleSidebar('sidebar');">
+        <div>Menu</div> <img src="/images/menubutton.png"></img>
+      </div>
+    </body>
+  </head>
+</html>
