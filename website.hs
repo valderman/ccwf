@@ -119,10 +119,6 @@ fireURL = "javascript:alert('No Fire yet!');"
 timeEditURL :: String
 timeEditURL = "https://se.timeedit.net/web/chalmers/db1/public/ri1X50gQ1560YvQQ05Z6779Y0Zy6007331Y50Q089.html"
 
--- | URL of the course homepage.
-courseURL :: String
-courseURL = "www.cse.chalmers.se/edu/course/TDA283_Compiler_Construction/"
-
 -- | The deadlines for the three labs.
 --   Available to templates as @deadline1/2/3@.
 labDeadlines :: [String]
