@@ -1022,11 +1022,12 @@ The test driver takes a number of options:
 | `-b <backend>` | Backend to use. One of `LLVM`, `x86`, `x86_64` and `custom` |
 | `-l <ver>`     | LLVM version to use for with LLVM backend.                  |
 | `-x <ext>`     | Implemented extensions. May be given multiple times.        |
+| `-t <dir>`     | Directory in which the Javalette test programs are found.   |
+| `-k`           | Keep any temporary directories created by the tester.       |
 | `-h`           | Print detailed help and usage instructions.                 |
 
-In addition, it takes two mandatory directories as its argument: the directory
-in which to find the `testsuite` directory which contains the test programs,
-and your submission directory.
+In addition, it takes one mandatory argument: a directory or tarball
+in which to find your submission.
 
 Thus, if you have placed your submission directory, `dir`, in
 the directory containing `Grade.hs`, you can test your compiler
