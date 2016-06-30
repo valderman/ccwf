@@ -8,19 +8,22 @@ Examination
 
 The examination in this course consists of two parts: a project and an oral
 exam. In order to pass the course you must complete the mandatory parts of
-the projects and pass the oral exam. For a higher grade there are several
-extensions available to the project which you can do. See the project
-description for details. The oral exam does not affect the grade.
+the projects -- a working **frontend and LLVM code generator**, as well as
+at least **one language extension** -- and pass the **oral exam**.
+For a [higher grade](/project#grading) there are several extensions available
+to the project which you can do.
+See the [project description](/project#extensions) for more information about
+each extension.
 
 Things which are considered when grading the project:
 
-* The language and any extensions must be handled in full generality.
+* The language and any extensions **must be handled in full generality**.
   It is not sufficient to only be able to compile the programs in the test suite.
-* Code quality does not affect the grade in general. But the code must hold
-  a minimum of readability so that the grader can make sense of it.
+* Code quality does not affect the grade in general. But **the code must hold
+  a minimum of readability** so that the grader can make sense of it.
 * The project documentation is not graded either but must contain the required
   information stated in the project description below.
-* We only give points to fully working solutions. No partial credits for
+* We only give points to **fully working solutions**. No partial credits for
   partial solutions. However, we do allow for resubmissions for minor bug fixes.
 
 

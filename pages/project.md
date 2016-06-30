@@ -1,7 +1,7 @@
 ---
 title: Project description
 menuorder: 4
-submenu: deadlines javalette frontend extensions testing code_generation extension_hints submission_format
+submenu: deadlines grading javalette frontend extensions testing code_generation extension_hints submission_format
 ---
 
 <div class="javaletteref">
@@ -66,6 +66,8 @@ In addition to these two submissions, examination includes a brief
 oral exam after submission C. Exact dates will be posted on the
 course home page.
 
+
+<a name="grading"></a>
 
 Extensions, credits and grades
 ------------------------------
