@@ -17,13 +17,14 @@ submenu: deadlines grading javalette frontend extensions testing code_generation
 * [Parameter passing](#parameter_passing)
 * [Javalette, C and Java](#javalette_c_and_java)
 * [Extensions](#extensions)
-    * [Arrays I](arrays1)
-    * [Arrays II](arrays2)
-    * [Pointers](pointers)
-    * [OOP I](oop1)
-    * [OOP II](oop2)
-    * [x86 generation](x86)
-    * [Optimization study](optstudy)
+    * [Arrays I](#arrays1)
+    * [Arrays II](#arrays2)
+    * [Pointers](#pointers)
+    * [OOP I](#oop1)
+    * [OOP II](#oop2)
+    * [x86 generation](#x86)
+    * [Optimization study](#optstudy)
+    * [Other extensions](#moreextensions)
 * [Testing](#testing)
 </div>
 
@@ -81,16 +82,16 @@ ambitious you will be; instead you should finish each stage before
 you attempt an extension.
 
 In submission C, each of the seven tasks described in the
-[Extensions](#extensions) section gives one credit if implemented as described,
-with the exception of [x86 code generation](#x86).
-Implementing a code generator will gives *two* credits, but also requires you
+"[extensions](#extensions)" section gives one credit if implemented as
+described, with the exception of [x86 code generation](#x86).
+Implementing a code generator gives *two* credits, but also requires you
 to implement some optimization for your code generator, such as register
 allocation or peephole optimization.
 
-To pass the course and get grade 3 (or G, if you are a GU student),
-you need to submit working solutions in all submissions, implement at
-least one language extension in submission C, and pass the oral
-exam. To get grade 4, you must earn three credits; grade 5 (VG for GU
+**To pass the course** and get grade 3 (or G, if you are a GU student),
+you need to submit working solutions in **all submissions**, implement at
+least **one language extension** in submission C, and pass the **oral
+exam**. To get grade 4, you must earn three credits; grade 5 (VG for GU
 students) requires five credits.
 
 If you are only looking to pass the course and only get one credit
@@ -874,6 +875,8 @@ discuss your choice with \$teacher\$ and explain the testing procedure.
 Note that this extension gives you *two* credits, but it is not enough to just
 implement a naïve code generator. You must also implement some sort of
 optimization, such as register allocation or peephole optimization.
+Talk to \$teacher\$ about which optimization(s) to implement before attempting
+the x86 code generator.
 
 
 <a name="optstudy"></a>
@@ -910,6 +913,8 @@ only get one credit then this project is not enough. You have to
 implement at least one extension to Javalette in order to pass the
 course.
 
+
+<a name="moreextensions"></a>
 
 Further possibilities
 ---------------------
