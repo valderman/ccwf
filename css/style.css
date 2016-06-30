@@ -35,7 +35,7 @@ li {
 #sidebar {
     position: fixed;
     padding-left: 4em;
-    width: 10em;
+    width: 11em;
 }
 
 @media (max-width: 750px) {
@@ -44,18 +44,35 @@ li {
     #sidebarheading {display: none;}
 
     #sidebar {
+        right: 0em;
         width: 100%;
-        left: 0em;
         padding-top: 2em;
         background-color: white;
         border-bottom: 1px solid black;
         z-index: 1000;
     }
+
+    #menu {
+        margin-left: 0em;
+        margin-right: 2em;
+    }
+}
+
+@media (min-width: 751px) {
+    .topbar {
+        display: none;
+    }
+
+    #menu {
+        margin-left: -1em;
+        padding-left: 0em;
+    }
 }
 
 #topbar {
     position: fixed;
-    background-color: #f0f0f0;
+    background-color: #f0f0fa;
+    border-bottom: 1px solid #e0e0e0;
     left: 0em;
     right: 0em;
     top: 0em;
@@ -79,12 +96,6 @@ li {
     float: left;
 }
 
-@media (min-width: 751px) {
-    .topbar {
-        display: none;
-    }
-}
-
 #sidebarheading {
     list-style: none;
     text-align: left;
@@ -96,17 +107,18 @@ li {
 #menu {
     margin-top: 2em;
     margin-bottom: 2em;
-    margin-left: -1em;
-    padding-left: 0em;
     font-family: verdana;
     list-style: none;
 }
 
 #menu li {
     padding: 0.5em;
+    border-radius: 0.5em;
+    padding-left: 1em;
 }
 
 #menu li.selected {
+    border-radius: 0.5em;
     background-color: black;
     color: white;
 }
@@ -116,11 +128,11 @@ li {
 }
 
 #menu li:hover.unselected {
-    background-color: #f0f0f0;
+    background-color: #f0f0fa;
 }
 
 #menu .selected .submenu li:hover {
-    background-color: #505050;
+    background-color: #505060;
 }
 
 #menu a {
@@ -129,6 +141,7 @@ li {
 }
 
 ul.submenu {
+    padding-right: 2em;
     padding-top: 0.5em;
     margin-left: -1em;
     margin-right: -1em;
@@ -139,8 +152,8 @@ ul.submenu {
 #content {
     position: absolute;
     margin: 3em;
-    left: 15em;
-    right: 15em;
+    left: 16em;
+    right: 16em;
     min-width: 30em;
 }
 
@@ -164,15 +177,17 @@ ul.submenu {
 }
 
 .lectures th {
-    background-color: #fffff0;
+    background-color: #f5f5fc;
 }
 
 pre {
-    background-color: #f5f5f5;
+    background-color: #f5f5fc;
     padding: 1.5em;
     margin-top: 1.5em;
     margin-left: 1.5em;
     max-width: 60em;
+    border-radius: 0.5em;
+    border: 1px solid #e0e0e0;
 }
 
 div.javaletteref {
@@ -180,7 +195,8 @@ div.javaletteref {
     top: 0em;
     right: 0em;
     height: 100%;
-    background-color: #f5f5f5;
+    background-color: #f5f5fc;
+    border-left: 1px solid #e0e0e0;
     padding-left: 1em;
     padding-right: 1em;
     font-size: 11pt;
@@ -195,7 +211,7 @@ div.javaletteref {
     padding-left: 1em;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
     div.javaletteref {
         display: none;
     }
