@@ -67,6 +67,13 @@ li {
         margin-left: -1em;
         padding-left: 0em;
     }
+
+    #sidebar {
+        width: 11em;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+    }
 }
 
 #topbar {
@@ -191,6 +198,8 @@ pre {
 }
 
 div.javaletteref {
+    overflow-y: auto;
+    overflow-x: hidden;
     position: fixed;
     top: 0em;
     right: 0em;
