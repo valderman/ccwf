@@ -1,10 +1,8 @@
-Compiler Construction course homepage
-=====================================
+Chalmers Course Website Framework
+=================================
 
-This is the course homepage for the Chalmers course Compiler Construction
-(TDA283/DIT300). The homepage is built using Hakyll. To build it, you will need
-a recent copy of the Haskell Platform, plus Hakyll itself (which is available
-from Hackage).
+A (hopefully) extensible and easy-to-use framework for creating and managing
+course websites.
 
 
 Overview
