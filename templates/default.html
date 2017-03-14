@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/highlighting.css">
     <script src="/js/scripts.js"></script>
-    <title>$title$ | Compiler Construction $year$</title>
+    <title>$title$ | $coursename$ $year$</title>
     <body>
       <div id="content" class="content">
         $body$
       </div>
       <div id="sidebar" class="sidebar">
         <ul id="sidebarheading">
-          <h2>Compiler Construction $year$</h2>
-          <p>TDA283/DIT300</p>
+          <h2>$coursename$ $year$</h2>
+          <p>$coursecode$</p>
         </ul>
         <ul id="menu">
           $for(menuitems)$
@@ -32,7 +32,7 @@
           </a>
           $endfor$
         </ul>
-        <img src="/images/chalmers.png">
+        <img src="/images/logo.png">
       </div>
       <div id="topbar" class="topbar" onclick="toggleSidebar('sidebar');">
         <div>Menu</div> <img src="/images/menubutton.png"></img>

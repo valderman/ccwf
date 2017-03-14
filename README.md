@@ -32,12 +32,17 @@ as the name of the examiner, URL of the Google group, etc. verbatim in these
 pages. Instead, use the template variables `\$teacher\$`, `\$group\$`, etc.,
 to ensure that this information is kept consistent across all pages and is
 easy to update if the course changes hands.
-Note that if you want to use a `$` -- that is, a literal dollar sign -- you
-should use the `S` environment variable.
 
 Files -- lecture notes, the test suite, etc. -- live in the `files` directory.
 Any files you want to distribute should be put in this directory and linked
 from the appropriate news item or markdown page.
+
+All links should be relative to the course website root. That is, they should
+start with `/`. A link to the course "about" page would thus look like this:
+
+```
+[The "about" page](/about)
+```
 
 The look of the course homepage mainly lives in the `css` and `templates`
 directories. Please exercise caution when updating the CSS and HTML in these
@@ -86,3 +91,51 @@ To update a lecture, simply add/remove/modify the relevant entry in the
 Don't forget to put any files you added/changed into the `files` directory.
 If you removed a file from the list, you should also remove it from the `files`
 directory.
+
+
+Building your course website
+----------------------------
+
+### Creating a page
+
+To create a new page, simply create a new markdown (`.md`) file in the `pages`
+subdirectory. In addition to the standard Markdown formatting, pages can have
+metadata, specified as `key: value` pairs at the top of the file.
+See `pages/about.md` for an example "about" page.
+
+Pages can have the following metadata items:
+
+* `title`. This is the title of the page, which will be used for the page's
+  entry in the main menu. It will also be displayed as the page title in the
+  user's web browser (i.e. window/tab decoration) as well as in Google search
+  results. If no title is given the page does not appear in the main menu.
+* `submenu`. Pages may have submenus, linking to anchors within the page.
+  A submenu is specified as a space-separated list of anchor names.
+  An anchor by the name `anchor_name` can be declared by inserting the HTML
+  code `<a name="anchor_name"></a>` somewhere on the page, and will appear
+  in the submenu as "Anchor name", if it is also added to the `submenu` field.
+* `menuorder`. A positive integer giving the page's place in the main menu.
+  The main menu is sorted in ascending order, so that the page with the lowest
+  menuorder appears at the top. If no menu order is given for a page, the page
+  will be sorted *after* all other pages.
+  If two pages share the same menu order, the ordering between them is
+  arbitrary (but consistent; i.e. will always be the same).
+  If `menuorder` is either `none` or a negative number, the page will not
+  appear in the main menu at all (but can, of course, still be linked manually).
+
+
+Troubleshooting
+---------------
+
+* Note that if you want to use a `$` -- that is, a literal dollar sign -- you
+  should use the `S` environment variable, since actual dollar signs get eaten
+  by the template compiler.
+* Also note that in templates, newlines may sometimes also get "eaten" by the
+  template compiler.
+  Inserting a backslash (`\`) character at the end of a line affected
+  by this problem will usually fix it.
+* When building tables or bullet points from lists (such as the `$assistant$`
+  list, it is strongly recommended to use explicit HTML in your markdown pages,
+  since the template compiler and the markdown compiler sometimes disagree on
+  what some particular space or newline means.
+  See the list of assistants on `pages/about.md` 

@@ -6,6 +6,7 @@ import Data.Char
 import Data.List
 import Data.Time
 import Data.Function (on)
+import Data.Maybe (isJust)
 import System.Directory (doesFileExist)
 import System.FilePath (takeBaseName)
 import Text.Read
@@ -15,7 +16,6 @@ import CCWF.Config
 mkWebsite :: Website -> IO ()
 mkWebsite (Website (Info{..}) (Materials{..})) = do
   -- Check that all lecture files are present
-  (courseYear, _, _) <- toGregorian . utctDay <$> getCurrentTime
   let files = [ "./files/" ++ file
               | fs <- map lectureFiles lectures
               , (_, file) <- fs
@@ -67,16 +67,20 @@ mkWebsite (Website (Info{..}) (Materials{..})) = do
         let -- Menu items, sorted by their menuorder metadata entry.
             -- Items without menuorder are sorted randomly among themselves,
             -- after any entries with a specified order.
-            menuitems = map snd $ sortBy (\a b -> compare (fst a) (fst b)) $
-              [ (menuOrder meta, Item (noIndex ident) title)
+            menuitems = map snd $ sortBy (compare `on` fst) $
+              [ (order, Item (noIndex ident) title)
               | (ident, meta) <- metas
               , Just title <- [lookupString "title" meta]
+              , Just order <- [menuOrder meta]
               ]
             -- Context for the page content; contains metadata set in the
             -- markdown file for each page, as well as some info set at the
             -- top of this file.
             ctx = mconcat
               [ constField "year" (show courseYear)
+              , constField "coursename" courseName
+              , constField "coursecode" courseCode
+              , constField "studyperiod" (show studyPeriod)
               , constField "syllabus" syllabusURL
               , constField "group" (maybe "" id googleGroupURL)
               , constField "submissions" (maybe "" id submissionURL)
@@ -113,10 +117,10 @@ mkTeacherListItemCtx :: Context Teacher
 mkTeacherListItemCtx = mconcat
   [ field "full" $ \(Item _ t) -> pure $ teacherName t
   , field "email" $ \(Item _ t) -> pure $ teacherEmail t
-  , field "bio" $ \(Item _ t) -> pure $ maybe "" id $ teacherBioURL t
+  , field "bio" $ \(Item _ t) -> maybe (fail "no bio") pure $ teacherBioURL t
   , field "phone" $ \(Item _ t) -> pure $ teacherPhone t
-  , field "office" $ \(Item _ t) -> pure $ maybe "" id $ teacherOffice t
-  , field "hours" $ \(Item _ t) -> pure $ maybe "" id $ teacherHours t
+  , field "office" $ \(Item _ t) -> maybe (fail "no office") pure $ teacherOffice t
+  , field "hours" $ \(Item _ t) -> maybe (fail "no hours") pure $ teacherHours t
   ]
 
 -- | Create context fields for a teacher.
@@ -132,11 +136,17 @@ teacherFields prefix (Teacher {..}) = mconcat
   ]
 
 -- | Get the menu order from a piece of metadata.
-menuOrder :: Metadata -> Int
+--   If the menu order is "none" or a negative number, the page will not be
+--   displayed in the menu. If the menu order is omitted 'maxBound' is assumed.
+menuOrder :: Metadata -> Maybe Int
 menuOrder meta =
-  maybe 1000000
-    (round :: Double -> Int)
-    (readMaybe =<< lookupString "menuorder" meta)
+  case lookupString "menuorder" meta of
+    Just "none" -> Nothing
+    Nothing     -> Just maxBound
+    Just s      -> if order s < Just 0 then Nothing else order s
+  where
+    order = maybe badorder Just . readMaybe
+    badorder = error "unable to read menuorder: not `none' or a number"
 
 -- | Set the CSS class of a menu item based on its identifier and the
 --   identifier of the current page. If the identifier matches the current
