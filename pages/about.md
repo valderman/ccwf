@@ -100,4 +100,4 @@ instructions. Two things should be noted:
     The second step is to actually submit your solution, by clicking the
     *Submit* button. **It is not enough to only upload; you must also submit!**
 
-[Go to the submission system](\$fire\$)
+[Go to the submission system](\$submissions\$)

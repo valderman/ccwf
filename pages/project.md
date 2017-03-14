@@ -25,7 +25,6 @@ submenu: deadlines grading javalette frontend extensions testing code_generation
     * [x86 generation](#x86)
     * [Optimization study](#optstudy)
     * [Other extensions](#moreextensions)
-* [Testing](#testing)
 </div>
 
 
@@ -1351,7 +1350,7 @@ declare i32 @printf(i8*, ...) nounwind
 ```
 
 What remains is a definition of the format string `@fstr` as a global constant
-(`\0A` is `\n`), the `getelementpointer` instruction that returns a pointer to
+(`\\0A` is `\\n`), the `getelementpointer` instruction that returns a pointer to
 the beginning of the format string and a call to `printf` with the result value.
 Note that the call to `printInt` has been inlined, i.e. replaced by a call to
 `printf`; so linking includes optimizations across files.
@@ -1360,17 +1359,17 @@ We can now run `a.out.bc` using the just-in-time compiler `lli`.
 Or, if we prefer, we can produce native assembly code
 with `llc`. On my x86 machine, this gives
 
-```asm
+```
         .text
         .align  4,0x90
         .globl  _main
 _main:
-        subl    $$12, %esp
-        movl    $$5040, 4(%esp)
-        movl    $$_fstr, (%esp)
+        subl    $S$12, %esp
+        movl    $S$5040, 4(%esp)
+        movl    $S$_fstr, (%esp)
         call    _printf
         xorl    %eax, %eax
-        addl    $$12, %esp
+        addl    $S$12, %esp
         ret
         .cstring
 _fstr:                          ## fstr

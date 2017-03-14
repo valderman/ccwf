@@ -9,7 +9,7 @@ Lectures
 
 Lectures take place on Tuesdays 13-15 in EL41 and Fridays 13-15 in EL42.
 Not all available times are used. The complete schedule is available in
-[TimeEdit](\$timeedit\$). Note that if you use an iCal or vCal-compatible
+[TimeEdit](\$schedule\$). Note that if you use an iCal or vCal-compatible
 calendar, you can download the course schedule from TimeEdit.
 
 The following is a preliminary plan for the lectures. Changes will be announced
