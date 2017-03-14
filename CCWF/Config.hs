@@ -71,5 +71,6 @@ data Lecture = Lecture
   , lectureDescription :: String
     -- | Any auxilliary material associated with the course.
     --   These files need to be present in the @files@ directory.
+    --   Each file is given as a pair or @(displayed name, file name)@.
   , lectureFiles       :: [(String, FilePath)]
   }
