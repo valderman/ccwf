@@ -31,7 +31,7 @@ li {
 }
 
 
-/* The sidebar and menu */
+/* The left sidebar and menu */
 #sidebar {
     position: fixed;
     padding-left: 4em;
@@ -198,6 +198,8 @@ pre {
     border: 1px solid #e0e0e0;
 }
 
+
+/* The quickref bar */
 div.quickref {
     overflow-y: auto;
     overflow-x: hidden;
@@ -224,5 +226,25 @@ div.quickref {
 @media (max-width: 1000px) {
     div.quickref {
         display: none;
+    }
+}
+
+
+/* Content that needs to make use of the full page width */
+.widecontent {
+    position: absolute;
+    margin: 3em;
+    left: 16em;
+    min-width: 30em;
+}
+
+@media (max-width: 800px) {
+    .widecontent {
+        position: absolute;
+        left: auto;
+        right: auto;
+        margin-left: 1em;
+        margin-right: 1em;
+        min-width: auto;
     }
 }
