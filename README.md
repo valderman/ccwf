@@ -38,7 +38,9 @@ Any files you want to distribute should be put in this directory and linked
 from the appropriate news item or markdown page.
 
 All links should be relative to the course website root. That is, they should
-start with `/`. A link to the course "about" page would thus look like this:
+start with `/`. Each page put into the `pages` subdirectory can be accessed
+using its base name (i.e. file name without extension), prepended with a slash.
+A link to the course "about" page would thus look like this:
 
 ```
 [The "about" page](/about)
@@ -48,7 +50,7 @@ The look of the course homepage mainly lives in the `css` and `templates`
 directories. Please exercise caution when updating the CSS and HTML in these
 directories, as you might inadvertently break the site for mobile devices.
 Make sure to test any changes both in your normal browsing environment and with
-your browser window shrunk to less 750 pixels wide.
+your browser window shrunk to less than 800 pixels wide.
 
 
 Day to day tasks
@@ -96,6 +98,8 @@ directory.
 Building your course website
 ----------------------------
 
+<a name="create_page"></a>
+
 ### Creating a page
 
 To create a new page, simply create a new markdown (`.md`) file in the `pages`
@@ -122,6 +126,31 @@ Pages can have the following metadata items:
   arbitrary (but consistent; i.e. will always be the same).
   If `menuorder` is either `none` or a negative number, the page will not
   appear in the main menu at all (but can, of course, still be linked manually).
+
+
+### Creating a page with a submenu
+
+See the section [creating a page](#create_page); more specifically, the
+discussion of the `submenu` metadata item.
+
+
+### Creating a page with a quickref bar
+
+In addition to the left sidebar containing the website's main menu, pages on
+course websites may have a right hand sidebar, called the "quickref bar".
+This sidebar is intended for pages that contain a *lot* of text, such as
+language definitions or descriptions of major course projects.
+
+To create such a sidebar, insert a `div` HTML element with the `quickref`
+CSS class anywhere on the page.
+(We really suggest you put it at the top though, so it's easy to find when
+you need to change it.)
+In this element you can then put any markdown or HTML that you wish.
+In our recommended use case, this would be a heading and a bulleted list of
+links to anchors inserted somewhere on the page.
+Anchors are inserted just like how they are inserted for use with a submenu.
+
+The file `pages/quickref.md` contains an example usage of the quickref bar.
 
 
 Troubleshooting

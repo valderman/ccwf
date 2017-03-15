@@ -19,8 +19,8 @@ easily browsable quick reference guide to the language the students have to
 create a compiler for.
 
 <div class="quickref">
-[Quick reference](#quickref)
----------------------------------
+Quick reference
+---------------
 * [Example entry](#example_entry)
 * [Another example](#example2)
 * [Example with sublist](#sublist_example)
