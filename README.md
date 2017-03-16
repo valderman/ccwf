@@ -1,8 +1,9 @@
 Chalmers Course Website Framework
 =================================
 
-A (hopefully) extensible and easy-to-use framework for creating and managing
+A configurable and (hopefully) easy-to-use framework for creating and managing
 course websites.
+To see CCFW in action, visit the [example website](http://ekblad.cc/ccwf).
 
 
 Overview
@@ -29,7 +30,7 @@ page on the course homepage. Larger edits -- modifications to the project
 description, updates from course evaluation meetings, etc. -- are made to the
 relevant markdown file. Please remember to *avoid* including information such
 as the name of the examiner, URL of the Google group, etc. verbatim in these
-pages. Instead, use the template variables `\$teacher\$`, `\$group\$`, etc.,
+pages. Instead, use the template variables `$teacher$`, `$group$`, etc.,
 to ensure that this information is kept consistent across all pages and is
 easy to update if the course changes hands.
 
@@ -159,10 +160,12 @@ Troubleshooting
 * Note that if you want to use a `$` -- that is, a literal dollar sign -- you
   should use the `S` environment variable, since actual dollar signs get eaten
   by the template compiler.
-* Also note that in templates, newlines may sometimes also get "eaten" by the
+* Also note that in templates, newlines may sometimes also get eaten by the
   template compiler.
   Inserting a backslash (`\`) character at the end of a line affected
   by this problem will usually fix it.
+* If a `$variable$` doesn't get properly interpolated, try escaping the dollar
+  signs in its name: `\$variable\$`.
 * When building tables or bullet points from lists (such as the `$assistant$`
   list, it is strongly recommended to use explicit HTML in your markdown pages,
   since the template compiler and the markdown compiler sometimes disagree on
