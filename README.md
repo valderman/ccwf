@@ -6,6 +6,21 @@ course websites.
 To see CCFW in action, visit the [example website](http://ekblad.cc/ccwf).
 
 
+Quickstart
+----------
+
+To quickly get started with CCWF:
+
+1. Clone this repository: `git clone https://github.com/valderman/ccwf.git`
+2. Add your course information to the `website.hs` build script.
+3. Modify the example website by adding, removing and modifying markdown files
+   in the `pages` subdirectory.
+4. Build your new course website: `runghc website.hs rebuild`
+5. Commit your changes.
+6. Whenever you need an official CCFW update, rebase your changes onto the
+   latest changes: `git fetch && git rebase`
+
+
 Overview
 --------
 
