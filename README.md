@@ -193,6 +193,43 @@ Anchors are inserted just like how they are inserted for use with a submenu.
 The file `pages/quickref.md` contains an example usage of the quickref bar.
 
 
+### Including code listings in pages
+
+CCWF lets you include code listings with optional syntax highlighting on any
+page. To include a one-line code snippet into running text, simply enclose it
+in backticks: `` `print "hello"` ``.
+These short snippets do not have syntax highlighting.
+
+To include longer code listings, you can enclose a block of code in triple
+backticks, where each set of backticks reside on a new line:
+
+````
+```
+Beautiful listings
+This one has no highlighting
+It is a haiku
+```
+````
+
+To add syntax highlighting to a code block, include the name of the language
+the code is written in right next to the opening triple backticks:
+
+````
+```haskell
+fib :: Integer -> Integer
+fib 1 = 1
+fib 2 = 1
+fib n = fib (n-1) + fib (n-2)
+```
+````
+
+If adding syntax highlighting to your code block doesn't change its appearance,
+or has some other funny effect on the look of the page or the code block, your
+language is most likely not supported.
+In which case, simply leaving the language out will at least give you a
+fixed-width font and a uniform look across code listings.
+
+
 ### Changing the look and feel of the entire website
 
 To change the global look of your site, you should preferably make changes to
@@ -232,4 +269,7 @@ Troubleshooting
   list, it is strongly recommended to use explicit HTML in your markdown pages,
   since the template compiler and the markdown compiler sometimes disagree on
   what some particular space or newline means.
-  See the list of assistants on `pages/about.md` 
+  See the list of assistants on `pages/about.md`.
+* If your code listings look weird, try not specifying a language.
+  You won't get syntax highlighting, but you'll at least get a fixed-width font
+  and a uniform look without messing up your page.
