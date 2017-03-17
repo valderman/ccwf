@@ -6,7 +6,7 @@ import Data.Char
 import Data.List
 import Data.Time
 import Data.Function (on)
-import Data.Maybe (isJust)
+import Data.Maybe (isJust, fromMaybe)
 import System.Directory (doesFileExist)
 import System.FilePath (takeBaseName)
 import Text.Read
@@ -205,14 +205,25 @@ mkMenuCtx self = mconcat
 --   template (i.e. it may include substitutions), and render it as markdown
 --   again. Finally, apply the default template to the end result and
 --   relativize all URLs.
+--   Pages may set a different template by setting the @template@ metadata
+--   variable.
 applyMeAsTemplate :: Context String -> Context String -> Compiler (Item String)
 applyMeAsTemplate pageCtx topCtx = do
+  template <- getTemplate
   getResourceBody
     >>= renderPandoc
     >>= applyAsTemplate pageCtx
     >>= renderPandoc
-    >>= loadAndApplyTemplate "templates/default.html" topCtx
+    >>= loadAndApplyTemplate template topCtx
     >>= relativizeUrls
+
+-- | Get the template to use for the current page.
+--   If no @template@ metadata is given, @default@ is assumed.
+getTemplate :: Compiler Identifier
+getTemplate = do
+  self  <- getUnderlying
+  mtemp <- getMetadataField self "template"
+  return $ fromFilePath $  "templates/" ++ (fromMaybe "default" mtemp) ++ ".html"
 
 -- | Turn a path @p@ (stripped of prefix and extension) into @p/index.html@.
 mkPath :: FilePath -> FilePath
