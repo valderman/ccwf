@@ -142,12 +142,35 @@ Pages can have the following metadata items:
   arbitrary (but consistent; i.e. will always be the same).
   If `menuorder` is either `none` or a negative number, the page will not
   appear in the main menu at all (but can, of course, still be linked manually).
+* `template`. The name of the template to use for this page.
+  Templates live in the `templates` subdirectory, so if a page wants to use
+  `mytemplate` as its template, the file `templates/mytemplate.html` will be
+  loaded.
 
 
 ### Creating a page with a submenu
 
 See the section [creating a page](#create_page); more specifically, the
 discussion of the `submenu` metadata item.
+
+
+### Creating a page with a custom template
+
+See the section [creating a page](#create_page); more specifically, the
+discussion of the `template` metadata item.
+In short:
+
+1. Create a new template (or copy from `default.html` and modify) in the
+   `templates` directory.
+2. Set the `template` metadata variable to the name of your template, on all
+   pages that should use the custom template.
+
+
+### Creating a page with very wide content
+
+Create a page as usual, but set the `template` metadata item for the page
+to `wide`. This will apply the `widecontent` CSS class to
+the contents of your page.
 
 
 ### Creating a page with a quickref bar
