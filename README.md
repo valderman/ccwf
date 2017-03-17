@@ -153,6 +153,7 @@ Pages can have the following metadata items:
 See the section [creating a page](#create_page); more specifically, the
 discussion of the `submenu` metadata item.
 
+<a name="custom_template"></a>
 
 ### Creating a page with a custom template
 
@@ -190,6 +191,29 @@ links to anchors inserted somewhere on the page.
 Anchors are inserted just like how they are inserted for use with a submenu.
 
 The file `pages/quickref.md` contains an example usage of the quickref bar.
+
+
+### Changing the look and feel of the entire website
+
+To change the global look of your site, you should preferably make changes to
+the CSS files in the `css` subdirectory.
+The file `css/style.css` governs most of the site's look, such as the fonts,
+colors, text decorations, etc.
+
+For more drastic changes, such as completely changing the page structure or
+adding some content to every single page, you will want to modify the default
+template `templates/default.html`.
+To only change the structure of *some* pages, you are better off creating a
+new template, for use only on those pages. See the section
+[creating a page with a custom template](#custom_template) for information
+on how to do this.
+
+When modifying either templates or CSS styling, it is **very important** to
+test your changes both using a normal-sized browser window, and with your
+browser window shrunk to <800 pixels wide (or, even better, on an actual
+mobile device).
+Otherwise, you risk breaking your website for either mobile or non-mobile
+devices.
 
 
 Troubleshooting
